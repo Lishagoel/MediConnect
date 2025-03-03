@@ -4,30 +4,19 @@ import { useState } from 'react'
 import {
     Dialog,
     DialogPanel,
-    Disclosure,
-    DisclosureButton,
-    DisclosurePanel,
-    Popover,
-    PopoverButton,
     PopoverGroup,
-    PopoverPanel,
 } from '@headlessui/react'
 import {
-    ArrowPathIcon,
     Bars3Icon,
-    ChartPieIcon,
-    CursorArrowRaysIcon,
-    FingerPrintIcon,
-    SquaresPlusIcon,
     XMarkIcon,
 } from '@heroicons/react/24/outline'
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+import Link from 'next/link'
 
 export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
     return (
-        <header className="bg-blue-400">
+        <header className="relative bg-white">
             <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
                 <div className="flex lg:flex-1">
                     <a href="#" className="-m-1.5 p-1.5">
@@ -49,24 +38,30 @@ export default function Navbar() {
                         <Bars3Icon aria-hidden="true" className="size-6" />
                     </button>
                 </div>
-                <PopoverGroup className="hidden lg:flex lg:gap-x-12">
-                    <a href="#" className="text-sm/6 font-semibold text-white">
-                        Products
-                    </a>
-                    <a href="#" className="text-sm/6 font-semibold text-white">
-                        Features
-                    </a>
-                    <a href="#" className="text-sm/6 font-semibold text-white">
-                        Marketplace
-                    </a>
-                    <a href="#" className="text-sm/6 font-semibold text-white">
-                        Company
-                    </a>
+                <PopoverGroup className="hidden lg:flex lg:gap-x-12 text-black">
+                    <Link href="#" className="text-sm/6 font-semibold hover:text-blue-600">
+                        Home
+                    </Link>
+                    <Link href="#" className="text-sm/6 font-semibold hover:text-blue-600">
+                        About
+                    </Link>
+                    <Link href="#" className="text-sm/6 font-semibold hover:text-blue-600">
+                        Service
+                    </Link>
+                    <Link href="#" className="text-sm/6 font-semibold hover:text-blue-600">
+                        Contact
+                    </Link>
+                    <Link href="#" className="text-sm/6 font-semibold hover:text-blue-600">
+                        Blog
+                    </Link>
                 </PopoverGroup>
-                <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <a href="#" className="text-sm/6 font-semibold text-white">
-                        Log in <span aria-hidden="true">&rarr;</span>
-                    </a>
+                <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-2">
+                    <Link href="/login" className="text-sm/6 font-semibold text-white bg-blue-600 duration-150 hover:bg-gray-700 active:bg-gray-900 rounded-4xl py-2 px-4">
+                        Log in
+                    </Link>
+                    <Link href="/login" className="text-sm/6 font-semibold text-white bg-blue-600 duration-150 hover:bg-gray-700 active:bg-gray-900 rounded-4xl py-2 px-4">
+                        Make An Appointment <span aria-hidden="true">&rarr;</span>
+                    </Link>
                 </div>
             </nav>
             <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
@@ -119,12 +114,12 @@ export default function Navbar() {
                                 </a>
                             </div>
                             <div className="py-6">
-                                <a
-                                    href="#"
+                                <Link
+                                    href="/login"
                                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-gray-50"
                                 >
                                     Log in
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>

@@ -1,87 +1,42 @@
-"use client"
-import Link from 'next/link';
-import React from 'react';
+'use client'
 
-const HeroSection = () => {
+import React from 'react'
+import img from '../../public/hero-bg.jpg'
+import TransitionText from './TransitionText'
+
+export default function Hero() {
+    const TEXTS = ['Therapy', 'Dental', 'Massage', 'Consultation', 'Surgery', 'Checkup', 'Vaccination'];
     return (
-        <section id="hero" className="d-flex align-items-center hero-text">
-            <div className="container d-flex flex-column-reverse flex-md-row align-items-center">
-                <div className="content text-md-start text-center">
-                    <h1 
-                        style={{
-                            fontSize: '3.5rem',
-                            fontWeight: '700',
-                            color: '#333',
-                            lineHeight: '1.2',
-                            marginBottom: '15px',
-                            textTransform: 'capitalize',
-                        }}
-                    >
-                        Find Trusted Doctors, <br />
-                        Anytime, Anywhere
-                    </h1>
-                    <p 
-                        style={{
-                            fontSize: '1.2rem',
-                            fontWeight:"bold",
-                            color: '#555',
-                            lineHeight: '1.6',
-                            marginBottom: '20px',
-                        }}
-                    >
-                        Get the right care, right away.
-                    </p>
-                    <div className="d-flex justify-content-center justify-content-md-start gap-3 mt-3">
-                        <Link 
-                            href={'/doctors'} 
-                            style={{
-                                display: 'inline-block',
-                                padding: '12px 25px',
-                                fontSize: '1rem',
-                                fontWeight: '600',
-                                textDecoration: 'none',
-                                borderRadius: '25px',
-                                textTransform: 'uppercase',
-                                color: '#fff',
-                                backgroundColor: '#50C878',
-                                transition: 'all 0.3s ease'
-                            }}
-                            onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#0e783c'}
-                            onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#50C878'}
-                        >
-                            Get Started
-                        </Link>
-                        <Link 
-                            href={'/track-appointment'} 
-                            style={{
-                                display: 'inline-block',
-                                padding: '12px 25px',
-                                fontSize: '1rem',
-                                fontWeight: '600',
-                                textDecoration: 'none',
-                                borderRadius: '25px',
-                                textTransform: 'uppercase',
-                                color: '#50C878',
-                                backgroundColor: '#fff',
-                                border: '2px solid #50C878',
-                                transition: 'all 0.3s ease'
-                            }}
-                            onMouseEnter={(e) => {
-                                (e.target as HTMLElement).style.backgroundColor = '#50C878';
-                                (e.target as HTMLElement).style.color = '#fff';
-                            }}
-                            onMouseLeave={(e) => {
-                                (e.target as HTMLElement).style.backgroundColor = '#fff';
-                                (e.target as HTMLElement).style.color = '#50C878';
-                            }}
-                        >
-                            Track Appointment
-                        </Link>
-                    </div>
+        <div
+            className="mx-auto px-4 pt-50 pb-12 overflow-hidden md:px-8 md:flex bg-cover bg-center"
+            style={{ backgroundImage: `url(${img.src})` }}
+        >
+            <div className='flex-none space-y-5 pl-14'>
+                <h1 className="text-4xl font-extrabold sm:text-5xl pt-16">
+                    <span className='text-blue-600'>Find Trusted Doctors</span>
+                    <br />
+                    <span>Anytime, Anywhere</span>
+                </h1>
+                <p className='text-xl font-bold flex gap-2'>
+                    <span>Book your</span>
+                    <TransitionText className='text-blue-600' TEXTS={TEXTS} />
+                    <span>sessions now</span>
+                </p>
+                <div className='flex items-center gap-x-3 sm:text-sm'>
+                    <a href="/#" className="flex items-center justify-center gap-x-1 py-2 px-4 text-white font-medium bg-blue-600 duration-150 hover:bg-gray-700 active:bg-gray-900 rounded-full md:inline-flex">
+                        Book Now
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
+                            <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
+                        </svg>
+                    </a>
+                    <a href="/#" className="flex items-center justify-center gap-x-1 py-2 px-4 text-black hover:text-blue-900 font-medium duration-150 md:inline-flex">
+                        Track Appointment
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
+                            <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02</svg>-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
+                        </svg>
+                    </a>
                 </div>
             </div>
-        </section>
-    );
-};
-
-export default HeroSection;
+        </div>
+    )
+}
