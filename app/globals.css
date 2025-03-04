@@ -123,3 +123,17 @@
     min-height: 100vh;
   }
 }
+
+.linear-bg-signup {
+  background: url("/signup.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.linear-bg-login {
+  background: url("/login.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

@@ -1,50 +1,17 @@
-"use client"
-import React, { useState } from 'react';
-// import { FaTimes } from 'react-icons/fa';
-// import { Link, useNavigate } from 'react-router-dom';
-// import log from '../../images/doc/info.svg';
-// import register from '../../images/doc/register.svg';
-import page from '../signup/page';
-import Link from 'next/link';
-// import './SignInForm.css';
-// import SignUp from './SignUp';
+import LoginForm from '@/components/Auth/LoginForm'
+import React from 'react'
 
-const SignInForm = () => {
-    const [isSignUp, setSignUp] = useState(false);
-    // const navigate = useNavigate();
-
+function page() {
     return (
-        <div className={`${isSignUp ? "signin-signup-container sign-up-mode" : "signin-signup-container"}`}>
-            <Link href="/">
-                <span className="pageCloseBtn"></span>
-            </Link>
-            <div className="forms-container">
-                {/* <div className="signIn-singUp">
-                    <SignUp setSignUp={setSignUp} />
-                </div> */}
-            </div>
-
-            <div className="panels-container">
-                <div className="panel left-panel">
-                    <div className="content">
-                        <h3 className='text-white'>New here ?</h3>
-                        <p>Unravel the world of MediConnect. Sign up and be one of us.</p>
-                        <button className="iBtn transparent" onClick={() => setSignUp(true)}>Sign Up</button>
-                    </div>
-                    {/* <img src={`${log}`} alt="" className="pImg" /> */}
-                </div>
-
-                <div className="panel right-panel">
-                    <div className="content">
-                        <h3 className='text-white'>One of us ?</h3>
-                        <p>Log in and start with where you left</p>
-                        <button className="iBtn transparent" onClick={() => setSignUp(false)}>Sign In</button>
-                    </div>
-                    {/* <img src={`${register}`} alt="" className="pImg" /> */}
+        <div className='bg-blue-100 min-h-screen py-8'>
+            <div className="grid md:grid-cols-2 grid-cols-1 w-full max-w-5xl mx-auto p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <div className='hidden md:flex linear-bg-login'></div>
+                <div>
+                    <LoginForm />
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default SignInForm;
+export default page
